@@ -17,11 +17,17 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
-		offset.y -= 1
+		motion.y -= 0 if (motion.y < -5) else 0.1
 	elif Input.is_action_pressed("move_down"):
-		offset.y += 1
+		motion.y += 0 if (motion.y > 5) else 0.1
+	else:
+		motion.y = 0
 	
 	if Input.is_action_pressed("move_left"):
-		offset.x -= 1
+		motion.x -= 0 if (motion.x < -5) else 0.1
 	elif Input.is_action_pressed("move_right"):
-		offset.x += 1
+		motion.x += 0 if (motion.x > 5) else 0.1
+	else:
+		motion.x = 0
+	
+	offset += motion
