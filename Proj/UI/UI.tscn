@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/ControlBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ChatBox.tscn" type="PackedScene" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bottom Bar" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -218.0
+margin_top = -64.0
+
+[node name="ControlBar" parent="Bottom Bar" instance=ExtResource( 1 )]
+margin_right = 64.0
+
+[node name="ChatBox" parent="Bottom Bar" instance=ExtResource( 2 )]
+margin_left = 68.0
+margin_right = 218.0
