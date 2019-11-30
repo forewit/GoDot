@@ -16,10 +16,10 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
-		offset.y -= 5
+		offset.y -= 20
 	elif Input.is_action_pressed("move_down"):
-		offset.y += 5
+		offset.y += 20
 	elif Input.is_action_pressed("move_left"):
-		offset.x -= 5
+		offset.x -= 20
 	elif Input.is_action_pressed("move_right"):
-		offset.x += 5
+		offset.x += 20

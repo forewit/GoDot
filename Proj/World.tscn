@@ -19,11 +19,11 @@ curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
-emission_box_extents = Vector3( 240, 80, 1 )
+emission_box_extents = Vector3( 1920, 1080, 1 )
 flag_disable_z = true
 spread = 180.0
-gravity = Vector3( 5, 20, 0 )
-initial_velocity = 50.0
+gravity = Vector3( 20, 80, 0 )
+initial_velocity = 160.0
 initial_velocity_random = 0.8
 angular_velocity = -2.85865e-042
 angular_velocity_random = 0.5
@@ -31,7 +31,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 20.0
 damping_random = 1.0
-scale = 0.01
+scale = 0.1
 scale_random = 0.05
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
@@ -40,8 +40,9 @@ hue_variation_random = 1.0
 [node name="Node" type="Node"]
 
 [node name="Camera" type="Camera2D" parent="."]
-offset = Vector2( 240, 135 )
 current = true
+limit_left = 0
+limit_top = 0
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -58,18 +59,16 @@ layer = 1
 motion_scale = Vector2( 1.2, 1.2 )
 
 [node name="Particles" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 240, 135 )
 
 [node name="Snow" type="Particles2D" parent="ParallaxBackground/ParallaxLayer/Particles"]
 modulate = Color( 1, 1, 1, 0.52549 )
-show_behind_parent = true
-position = Vector2( 0, -75 )
+position = Vector2( 1920, 810 )
 z_index = 1
-amount = 600
-lifetime = 6.0
+amount = 900
+lifetime = 4.0
 preprocess = 600.0
 speed_scale = 1.2
 randomness = 1.0
-visibility_rect = Rect2( -240, -60, 480, 270 )
+visibility_rect = Rect2( -1920, -810, 3840, 2160 )
 process_material = SubResource( 5 )
 texture = ExtResource( 3 )
