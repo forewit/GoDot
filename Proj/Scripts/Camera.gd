@@ -35,5 +35,6 @@ func _physics_process(delta):
 		motion.x = 0
 	
 	if motion != Vector2.ZERO:
-		offset += motion
+		position.x += motion.x * 2
+		position.y += motion.y * 2
 		emit_signal("on_camera_move", motion)
