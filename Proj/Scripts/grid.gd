@@ -15,7 +15,7 @@ func _ready():
 	set_process(true)
 
 func _draw():
-	var screen_size = get_viewport().size
+	var screen_size = get_viewport().size * camera.zoom
 	var quad_size = Vector2(screen_size.x/2, screen_size.y/2)
 	var x = 0
 	var y = 0
