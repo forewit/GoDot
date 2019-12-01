@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/topdown.png-de05451a98adb8d22aab9ba94722b9c1.stex"
+path="res://.import/topdown_jungle.png-6729cc011387e46886d5cc59dc9d21e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/topdown.png"
-dest_files=[ "res://.import/topdown.png-de05451a98adb8d22aab9ba94722b9c1.stex" ]
+source_file="res://Tilesets/topdown_jungle.png"
+dest_files=[ "res://.import/topdown_jungle.png-6729cc011387e46886d5cc59dc9d21e5.stex" ]
 
 [params]
 

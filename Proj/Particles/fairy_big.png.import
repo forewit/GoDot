@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fairy_big.png-61a4bd735a8f359176f715e0b1506243.stex"
+path="res://.import/fairy_big.png-e114976275f60f0d1cdde081b4c91bf1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fairy_big.png"
-dest_files=[ "res://.import/fairy_big.png-61a4bd735a8f359176f715e0b1506243.stex" ]
+source_file="res://Particles/fairy_big.png"
+dest_files=[ "res://.import/fairy_big.png-e114976275f60f0d1cdde081b4c91bf1.stex" ]
 
 [params]
 
