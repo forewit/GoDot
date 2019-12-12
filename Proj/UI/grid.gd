@@ -23,14 +23,14 @@ func _draw():
 	var y = 0.0
 	
 	y = screen_quad.y + cell_size
-	draw_line(Vector2(0, y), Vector2(0, -y), Color(255,0,0))
+	draw_line(Vector2(0, y), Vector2(0, -y), color)
 	for i in range(1, grid_quad.x + 2):
 		x = i * cell_size
 		draw_line(Vector2(x, y), Vector2(x, -y), color)
 		draw_line(Vector2(-x, y), Vector2(-x, -y), color)
 	
 	x = screen_quad.x + cell_size
-	draw_line(Vector2(x, 0), Vector2(-x, 0), Color(255,0,0))
+	draw_line(Vector2(x, 0), Vector2(-x, 0), color)
 	for i in range(1, grid_quad.y + 2):
 		y = i * cell_size
 		draw_line(Vector2(x, y), Vector2(-x, y), color)
