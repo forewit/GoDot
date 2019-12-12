@@ -4,17 +4,16 @@ extends Camera2D
 # var a = 2
 # var b = "text"
 
-const MAX_ZOOM_LEVEL = 0.5
-const MIN_ZOOM_LEVEL = 4.0
-const ZOOM_INCREMENT = 0.05
+export var max_zoom = 0.5
+export var min_zoom = 4.0
+export var zoom_increment = 0.05
+export var speed = 4
 
 signal moved()
 signal zoomed()
 
 var _current_zoom_level = 1
 var _drag = false
-
-export var speed = 4
 
 func _physics_process(delta):
 	var motion = Vector2(0, 0)
@@ -43,9 +42,9 @@ func _input(event):
 	elif event.is_action_released("cam_drag"):
 		_drag = false
 	elif event.is_action("cam_zoom_in"):
-		_update_zoom(-ZOOM_INCREMENT, get_local_mouse_position())
+		_update_zoom(-zoom_increment, get_local_mouse_position())
 	elif event.is_action("cam_zoom_out"):
-		_update_zoom(ZOOM_INCREMENT, get_local_mouse_position())
+		_update_zoom(zoom_increment, get_local_mouse_position())
 	elif event is InputEventMouseMotion && _drag:
 		set_offset(get_offset() - event.relative*_current_zoom_level)
 		emit_signal("moved")
@@ -53,10 +52,10 @@ func _input(event):
 func _update_zoom(incr, zoom_anchor):
 	var old_zoom = _current_zoom_level
 	_current_zoom_level += incr
-	if _current_zoom_level < MAX_ZOOM_LEVEL:
-		_current_zoom_level = MAX_ZOOM_LEVEL
-	elif _current_zoom_level > MIN_ZOOM_LEVEL:
-		_current_zoom_level = MIN_ZOOM_LEVEL
+	if _current_zoom_level < max_zoom:
+		_current_zoom_level = max_zoom
+	elif _current_zoom_level > min_zoom:
+		_current_zoom_level = min_zoom
 	if old_zoom == _current_zoom_level:
 		return
 	
