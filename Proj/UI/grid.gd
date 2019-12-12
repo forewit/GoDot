@@ -7,16 +7,17 @@ extends Node2D
 export var cell_size = 100
 export var color = Color(100, 100, 100, 100)
 
-onready var camera = get_node("../../Camera")
+onready var camera = get_node("../Camera")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	camera.connect("on_camera_move", self, "_on_camera_move")
+	camera.connect("moved", self, "_on_camera_move")
+	camera.connect("zoomed", self, "_on_camera_zoom")
 	set_process(true)
 
 func _draw():
 	# number of grid lines per quadrant
-	var screen_quad = get_viewport().size * camera.zoom / 2.0
+	var screen_quad = get_viewport().size * camera.get_zoom() / 2.0
 	var grid_quad = (screen_quad / cell_size).round()
 	var x = 0.0
 	var y = 0.0
@@ -35,8 +36,13 @@ func _draw():
 		draw_line(Vector2(x, y), Vector2(-x, y), color)
 		draw_line(Vector2(x, -y), Vector2(-x, -y), color)
 
-func _on_camera_move(motion):
-	if motion.x != 0:
-		position.x = fmod(position.x - motion.x, cell_size)
-	if motion.y != 0:
-		position.y = fmod(position.y - motion.y, cell_size)
+func _on_camera_move():
+	var x_offset = camera.get_position().x  + camera.get_offset().x
+	var y_offset = camera.get_position().y  + camera.get_offset().y
+	
+	position.x = x_offset - fmod(x_offset, cell_size)
+	position.y = y_offset - fmod(y_offset, cell_size)
+
+func _on_camera_zoom():
+	_on_camera_move()
+	update()
